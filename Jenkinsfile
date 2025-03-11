@@ -8,7 +8,7 @@ stage('Clone Code') {
 
 steps {
 
-git 'https://github.com/ankitamohanty1509/jenkins-kubernetes.git', branch: 'main'
+git url: 'https://github.com/ankitamohanty1509/jenkins-kubernetes.git', branch: 'main'
 
 }
 
@@ -18,7 +18,7 @@ stage('Build Docker Image') {
 
 steps {
 
-sh 'docker build -t ankitamohanty1509flask-ci-cd:latest .'
+sh 'docker build -t ankitamohanty1509/flask-ci-cd:latest .'
 
 }
 
@@ -28,7 +28,7 @@ stage('Push to Docker Hub') {
 
 steps {
 
-withDockerRegistry([credentialsId: 'docker-creds', url: '']) {
+withDockerRegistry([credentialsId: 'docker-hub-credentials', url: '']) {
 
 sh 'docker push ankitamohanty1509/flask-ci-cd:latest'
 
