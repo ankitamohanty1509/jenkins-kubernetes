@@ -8,7 +8,7 @@ stage('Clone Code') {
 
 steps {
 
-git 'https://github.com/ankitamohanty1509/jenkins-kubernetes.git'
+git 'https://github.com/ankitamohanty1509/jenkins-kubernetes.git', branch: 'main'
 
 }
 
